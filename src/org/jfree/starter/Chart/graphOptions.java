@@ -54,8 +54,35 @@ public class graphOptions {
             SaveLoadDataSets sl = new SaveLoadDataSets();
             dataPoints list = sl.ReadFile();
 
+            createBarGraph bg = new createBarGraph(list, axisY, axisX, dataSetName);
+
+
 
         }
+
+    void selectionLineChart () {
+        String axisY;
+        String axisX;
+        String dataSetName;
+
+        Scanner input = new Scanner (System.in);
+        System.out.println("Name for category (Y) axis: ");
+        axisY = input.nextLine();
+
+        System.out.println("Name for category (X) axis: ");
+        axisX = input.nextLine();
+
+        System.out.println("Provide data set name: ");
+        dataSetName = input.nextLine();
+
+        SaveLoadDataSets sl = new SaveLoadDataSets();
+        dataPoints list = sl.ReadFile();
+
+        createLineChart lc = new createLineChart(list, axisY, axisX, dataSetName);
+
+
+
+    }
 
 
 

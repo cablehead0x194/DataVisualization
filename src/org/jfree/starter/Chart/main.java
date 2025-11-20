@@ -90,9 +90,9 @@ public class main {
         int choice;
 
         do {
-            System.out.println("\n=== Graph Options Menu ===");
-            System.out.println("1. Create Data Set");
-
+            System.out.println("\n=== Chart Creation Menu ===");
+            System.out.println("1. Create Bar Chart");
+            System.out.println("2. Create Line Chart");
             System.out.println("0. Return to main menu.");
             System.out.print("Enter your choice: ");
 
@@ -100,8 +100,11 @@ public class main {
 
             switch (choice) {
                 case 1:
-                    System.out.println("Doesn't do anything yet");
-
+                    graphOptions bgr = new graphOptions();
+                    bgr.selectionBar();
+                case 2:
+                    graphOptions cgr = new graphOptions();
+                    cgr.selectionLineChart();
                 case 0:
                     break;
                 default:
@@ -132,7 +135,7 @@ public class main {
             System.out.println("5. Save Data Set");
             System.out.println("6. Load Data Set");
             System.out.println("7. View Saved Data Sets");
-            System.out.println("8. Graph Settings");
+            System.out.println("8. Select and Create Graph");
             System.out.println("0. Exit");
             System.out.print("Enter your choice: ");
 
@@ -162,6 +165,7 @@ public class main {
                     break;
                 case 8:
                     grOptionsMenu();
+                    break;
                 case 0:
                     System.out.println("Goodbye!");
                     break;
