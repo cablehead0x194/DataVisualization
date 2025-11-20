@@ -1,0 +1,7 @@
+To do List:
+
+-Clean up
+    -> Remove createGraphWindow
+    -> Rename classes as appropriate
+
+-Create exceptions with try/call statements to keep program from crashing with incomaptible inputs.
