@@ -3,6 +3,9 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class main {
+
+    public static dataPoints[] list = new dataPoints[10];
+
     public static dataPoints createDataSet() {
         Scanner scanner = new Scanner(System.in);
         String name ="";
@@ -37,6 +40,9 @@ public class main {
      * Need to make the array accesible but immutable
      */
     public static void addDataPoints(dataPoints array) {
+
+
+
         try {
             Scanner scanner = new Scanner(System.in);
             dataPoints list = array;
@@ -66,7 +72,7 @@ public class main {
             list.printArray();
         }
         catch (NullPointerException e) {
-            System.out.println("A data set does not exist to save.");
+            System.out.println("There are no data sets loaded to the program.");
         }
     }
 
@@ -114,13 +120,33 @@ public class main {
         while (choice != 0) ;
     }
 
+    public static void saveLocally(dataPoints newSave) {
+        int i = 0;
+        try {
+            while (list[i] != null) {
+                ++i;
+            }
+            list[i] = newSave;
+        }
+        catch (NullPointerException e) {
+            System.out.println("Too many working data sets.");
+        }
+    }
 
+    public static void loadedSetNames() {
+       int i = 0;
+       if (list[0] == null) { System.out.println("There are no data sets loaded."); }
+        while (list[i] != null) {
+            System.out.println(list[i].getName());
+            ++i;
+        }
+    }
 
 
 
     public static void main(String[] args) {
 
-        dataPoints[] list = new dataPoints[10];
+
 
         //create menu to select
         Scanner scanner = new Scanner(System.in);
@@ -131,7 +157,7 @@ public class main {
             System.out.println("1. Create Data Set");
             System.out.println("2. View Data Set");
             System.out.println("3. Add to Data Set");
-            System.out.println("4. Create Graph");
+            System.out.println("4. View Loaded Graphs List");
             System.out.println("5. Save Data Set");
             System.out.println("6. Load Data Set");
             System.out.println("7. View Saved Data Sets");
@@ -143,8 +169,8 @@ public class main {
 
             switch (choice) {
                 case 1:
-                    list[0] = createDataSet();
-
+                    dataPoints newList = createDataSet();
+                    saveLocally(newList);
                     break;
                 case 2:
                     printDataPoints(list[0]);
@@ -153,13 +179,14 @@ public class main {
                     addDataPoints(list[0]);
                     break;
                 case 4:
-                    new createGraphWindow(list[0]);
+                    loadedSetNames();
                     break;
                 case 5:
                     SaveObjectArrayStart(list[0]);
                     break;
                 case 6:
-                    list[0] = loadDataSet();
+                    saveLocally(loadDataSet());
+                    break;
                 case 7:
                     loadSets();
                     break;

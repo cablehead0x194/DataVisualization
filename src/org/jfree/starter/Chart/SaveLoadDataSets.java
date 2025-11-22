@@ -27,7 +27,7 @@ public class SaveLoadDataSets {
         fileName = scanner.next();
         //create file to save data points to
         try {
-            File myObj = new File(fileName);
+            File myObj = new File("data/" + fileName);
             if (myObj.createNewFile()) {
                 System.out.println("File created: " + myObj.getName());
             } else {
@@ -42,7 +42,7 @@ public class SaveLoadDataSets {
         //write name and then data points to txt file.
         try {
             FileWriter myWriter = new FileWriter(fileName);
-            myWriter.write(dataSet.getName() + "\n");
+            myWriter.write(fileName + "\n");
             myWriter.write(dataSet.getLength() + "\n");
             //create toString for dataPoints
             myWriter.write(dataSet.dataToString());

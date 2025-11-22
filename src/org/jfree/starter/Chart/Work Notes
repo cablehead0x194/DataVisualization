@@ -1,7 +1,7 @@
 To do List:
 
 -Clean up
-    -> Remove createGraphWindow
+    -> Name of data sets not saving onto file.
     -> Rename classes as appropriate
 
 -Create exceptions with try/call statements to keep program from crashing with incomaptible inputs.
