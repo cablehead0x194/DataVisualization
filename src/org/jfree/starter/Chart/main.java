@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class main {
 
-    public static dataPoints[] list = new dataPoints[10];
+    public static dataSets[] list = new dataSets[10];
 
-    public static dataPoints createDataSet() {
+    public static dataSets createDataSet() {
         Scanner scanner = new Scanner(System.in);
         String name ="";
         String date = "";
@@ -30,7 +30,7 @@ public class main {
         }   while (!valid);
 
 
-        dataPoints array = new dataPoints(name, length);
+        dataSets array = new dataSets(name, length);
         return array;
     }
 
@@ -39,13 +39,12 @@ public class main {
      * no return needed.
      * Need to make the array accesible but immutable
      */
-    public static void addDataPoints(dataPoints array) {
+    public static void addDataPoints(dataSets array) {
 
 
 
         try {
             Scanner scanner = new Scanner(System.in);
-            dataPoints list = array;
             double points = 0.0;
             String date = "";
 
@@ -67,27 +66,34 @@ public class main {
     }
 
     //to view data set
-    public static void printDataPoints (dataPoints list) {
+    public static void printDataPoints() {
         try {
-            list.printArray();
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Select locally loaded data set: ");
+        loadedSetNames();
+        int setNo = input.nextInt();
+
+        list[setNo].dataToString();
+
         }
         catch (NullPointerException e) {
             System.out.println("There are no data sets loaded to the program.");
         }
     }
 
-    public static void SaveObjectArrayStart(dataPoints list) {
-        SaveLoadDataSets sl = new SaveLoadDataSets(list);
+    public static void saveLocalArray(dataSets list) {
+        dataIO sl = new dataIO(list);
         sl.SaveArray();
     }
 
-    public static dataPoints loadDataSet() {
-        SaveLoadDataSets sl = new SaveLoadDataSets();
+    public static dataSets loadDataSet() {
+        dataIO sl = new dataIO();
         return sl.ReadFile();
     }
 
-    public static void loadSets() {
-        SaveLoadDataSets ls =  new SaveLoadDataSets();
+    public static void viewAllSets() {
+        dataIO ls =  new dataIO();
         ls.viewSavedDataSets();
     }
 
@@ -106,10 +112,10 @@ public class main {
 
             switch (choice) {
                 case 1:
-                    graphOptions bgr = new graphOptions();
+                    chartCreation bgr = new chartCreation();
                     bgr.selectionBar();
                 case 2:
-                    graphOptions cgr = new graphOptions();
+                    chartCreation cgr = new chartCreation();
                     cgr.selectionLineChart();
                 case 0:
                     break;
@@ -120,7 +126,7 @@ public class main {
         while (choice != 0) ;
     }
 
-    public static void saveLocally(dataPoints newSave) {
+    public static void saveLocally(dataSets newSave) {
         int i = 0;
         try {
             while (list[i] != null) {
@@ -137,6 +143,7 @@ public class main {
        int i = 0;
        if (list[0] == null) { System.out.println("There are no data sets loaded."); }
         while (list[i] != null) {
+            System.out.print(i+". ");
             System.out.println(list[i].getName());
             ++i;
         }
@@ -157,7 +164,7 @@ public class main {
             System.out.println("1. Create Data Set");
             System.out.println("2. View Data Set");
             System.out.println("3. Add to Data Set");
-            System.out.println("4. View Loaded Graphs List");
+            System.out.println("4. View Loaded Data Sets");
             System.out.println("5. Save Data Set");
             System.out.println("6. Load Data Set");
             System.out.println("7. View Saved Data Sets");
@@ -169,26 +176,29 @@ public class main {
 
             switch (choice) {
                 case 1:
-                    dataPoints newList = createDataSet();
+                    dataSets newList = createDataSet();
                     saveLocally(newList);
                     break;
                 case 2:
-                    printDataPoints(list[0]);
+                    printDataPoints();
                     break;
                 case 3:
+                    //modify so it adds data points to specified local data set
                     addDataPoints(list[0]);
                     break;
                 case 4:
                     loadedSetNames();
                     break;
                 case 5:
-                    SaveObjectArrayStart(list[0]);
+                    //modify so it saves request local data set not just list[0]
+                    saveLocalArray(list[0]);
                     break;
                 case 6:
-                    saveLocally(loadDataSet());
+                    dataSets loadUp = loadDataSet();
+                    saveLocally(loadUp);
                     break;
                 case 7:
-                    loadSets();
+                    viewAllSets();
                     break;
                 case 8:
                     grOptionsMenu();

@@ -2,6 +2,7 @@ To do List:
 
 -Clean up
     -> Name of data sets not saving onto file.
-    -> Rename classes as appropriate
+    -> Modify case 3 and 5 in menu.
+
 
 -Create exceptions with try/call statements to keep program from crashing with incomaptible inputs.

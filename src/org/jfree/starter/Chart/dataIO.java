@@ -3,17 +3,16 @@ package org.jfree.starter.Chart;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
 
-public class SaveLoadDataSets {
-    dataPoints dataSet;
+public class dataIO {
+    dataSets dataSet;
 
-    public SaveLoadDataSets() {
+    public dataIO() {
     }
 
-    public SaveLoadDataSets(dataPoints dataSet) {
+    public dataIO(dataSets dataSet) {
         this.dataSet = dataSet;
     }
 
@@ -44,7 +43,7 @@ public class SaveLoadDataSets {
             FileWriter myWriter = new FileWriter(fileName);
             myWriter.write(fileName + "\n");
             myWriter.write(dataSet.getLength() + "\n");
-            //create toString for dataPoints
+            //create toString for dataSets
             myWriter.write(dataSet.dataToString());
 
             myWriter.close();
@@ -60,7 +59,7 @@ public class SaveLoadDataSets {
     }
 
     //does this work?
-    public dataPoints ReadFile() {
+    public dataSets ReadFile() {
         try {
             Scanner scanner = new Scanner(System.in);
 
@@ -72,7 +71,7 @@ public class SaveLoadDataSets {
 
         File myObj = new File("data/" + fileName);
 
-        // create new dataPoints set and add information from scanner into new dataset.
+        // create new dataSets set and add information from scanner into new dataset.
         Scanner myReader = new Scanner(myObj);
             String name = "";
             int length = 0;
@@ -80,7 +79,7 @@ public class SaveLoadDataSets {
             name = myReader.nextLine();
             length = myReader.nextInt();
 
-            dataPoints array = new dataPoints(name, length);
+            dataSets array = new dataSets(name, length);
 
             while (myReader.hasNextLine()) {
                 double data = myReader.nextDouble();

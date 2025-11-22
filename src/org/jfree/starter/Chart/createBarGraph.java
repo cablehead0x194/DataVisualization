@@ -2,25 +2,16 @@ package org.jfree.starter.Chart;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
-import org.jfree.chart.ChartUtils;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.axis.NumberAxis;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.ValueMarker;
-import org.jfree.chart.renderer.category.LineAndShapeRenderer;
-import org.jfree.chart.title.TextTitle;
-import org.jfree.chart.ui.HorizontalAlignment;
-import org.jfree.chart.ui.RectangleEdge;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.geom.Ellipse2D;
 
 public class createBarGraph {
 
-   createBarGraph (dataPoints list, String axisY, String axisX, String dataSetName) {
+   createBarGraph (dataSets list, String axisY, String axisX, String dataSetName) {
 
 
 
@@ -30,7 +21,7 @@ public class createBarGraph {
              *
              * @param title the frame title.
              */
-            public App(String title, dataPoints data) {
+            public App(String title, dataSets data) {
                 setTitle(title);
                 CategoryDataset dataset = createDataset(data);
                 JFreeChart chart = createChart(dataset);
@@ -48,7 +39,7 @@ public class createBarGraph {
              *
              * @return A sample dataset.
              */
-            private CategoryDataset createDataset(dataPoints list) {
+            private CategoryDataset createDataset(dataSets list) {
                 DefaultCategoryDataset dataset = new DefaultCategoryDataset();
                 dataPoint[] arr = list.getArray();
                 int listLength = list.getLength();

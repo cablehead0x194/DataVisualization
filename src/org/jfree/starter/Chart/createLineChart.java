@@ -10,7 +10,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class createLineChart {
-    createLineChart (dataPoints list, String axisY, String axisX, String dataSetName) {
+    createLineChart (dataSets list, String axisY, String axisX, String dataSetName) {
 
 
 
@@ -20,7 +20,7 @@ public class createLineChart {
              *
              * @param title the frame title.
              */
-            public App(String title, dataPoints data) {
+            public App(String title, dataSets data) {
                 setTitle(title);
                 CategoryDataset dataset = createDataset(data);
                 JFreeChart chart = createChart(dataset);
@@ -38,7 +38,7 @@ public class createLineChart {
              *
              * @return A sample dataset.
              */
-            private CategoryDataset createDataset(dataPoints list) {
+            private CategoryDataset createDataset(dataSets list) {
                 DefaultCategoryDataset dataset = new DefaultCategoryDataset();
                 dataPoint[] arr = list.getArray();
                 int listLength = list.getLength();

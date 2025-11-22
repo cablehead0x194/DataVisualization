@@ -17,12 +17,12 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
-
+//not inuse
 public class createGraphWindow {
 
 
 
-    createGraphWindow (dataPoints list) {
+    createGraphWindow (dataSets list) {
 
 
 
@@ -32,7 +32,7 @@ public class createGraphWindow {
              *
              * @param title the frame title.
              */
-            public App(String title, dataPoints data) {
+            public App(String title, dataSets data) {
                 setTitle(title);
                 CategoryDataset dataset = createDataset(data);
                 JFreeChart chart = createChart(dataset);
@@ -50,7 +50,7 @@ public class createGraphWindow {
              *
              * @return A sample dataset.
              */
-            private CategoryDataset createDataset(dataPoints list) {
+            private CategoryDataset createDataset(dataSets list) {
                 DefaultCategoryDataset dataset = new DefaultCategoryDataset();
                 dataPoint[] arr = list.getArray();
                 int listLength = list.getLength();

@@ -1,17 +1,13 @@
 package org.jfree.starter.Chart;
 
-import java.io.*;
-import java.util.Scanner;
-import java.io.FileNotFoundException;
-
-public class dataPoints {
+public class dataSets {
     private String name = "";
     private dataPoint[] arr;
     private int length;
     private String date = "";
 
     //constructor for an array of data points
-    public dataPoints (String name, int size) {
+    public dataSets(String name, int size) {
         this.name = name;
         arr = new dataPoint[size];
         length = size;
@@ -55,7 +51,7 @@ public class dataPoints {
     public String dataToString() {
         String str = "";
         for (int i = 0; i < arr.length; i++) {
-            str += arr[i].getPoint() +" "+ arr[i].getDate() + "\n";
+            str += arr[i].getPoint()+1 +" "+ arr[i].getDate() + "\n";
             System.out.println(arr[i].getPoint() + " " + arr[i].getDate());
         }
 
