@@ -2,6 +2,7 @@ To do List:
 
 -Clean up
     -> Name of data sets not saving onto file.
+    -> Data not saving to files.
     ->Delegate methods in main to classes for conciseness.
     -> Modify case 3 and 5 in menu.
 

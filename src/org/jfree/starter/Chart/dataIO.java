@@ -26,7 +26,7 @@ public class dataIO {
         fileName = scanner.next();
         //create file to save data points to
         try {
-            File myObj = new File("data/" + fileName);
+            File myObj = new File("data/" + fileName +".txt");
             if (myObj.createNewFile()) {
                 System.out.println("File created: " + myObj.getName());
             } else {
