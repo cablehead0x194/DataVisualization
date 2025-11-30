@@ -82,8 +82,12 @@ public class main {
         }
     }
 
-    public static void saveLocalArray(dataSets list) {
-        dataIO sl = new dataIO(list);
+    public static void saveLocalArray() {
+        System.out.println("Select local data set to save: ");
+        loadedSetNames();
+        Scanner scanMe = new Scanner(System.in);
+        int loadThis = scanMe.nextInt();
+        dataIO sl = new dataIO(list[loadThis]);
         sl.SaveArray();
     }
 
@@ -191,7 +195,7 @@ public class main {
                     break;
                 case 5:
                     //modify so it saves request local data set not just list[0]
-                    saveLocalArray(list[0]);
+                    saveLocalArray();
                     break;
                 case 6:
                     dataSets loadUp = loadDataSet();

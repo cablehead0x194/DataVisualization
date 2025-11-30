@@ -24,23 +24,9 @@ public class dataIO {
         Scanner scanner = new Scanner(System.in);
         System.out.println("New file name: ");
         fileName = scanner.next();
-        //create file to save data points to
-        try {
-            File myObj = new File("data/" + fileName +".txt");
-            if (myObj.createNewFile()) {
-                System.out.println("File created: " + myObj.getName());
-            } else {
-                System.out.println("File already exists.");
-                return;
-            }
-        } catch (IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
 
-        //write name and then data points to txt file.
         try {
-            FileWriter myWriter = new FileWriter(fileName);
+            FileWriter myWriter = new FileWriter("data/" + fileName);
             myWriter.write(fileName + "\n");
             myWriter.write(dataSet.getLength() + "\n");
             //create toString for dataSets
@@ -56,6 +42,7 @@ public class dataIO {
         catch (NullPointerException e) {
             System.out.println("Data set has not been initialized or loaded.");
         }
+
     }
 
     //does this work?
@@ -69,7 +56,8 @@ public class dataIO {
         System.out.println("Please enter the name of the data set file: ");
         fileName = scanner.next();
 
-        File myObj = new File("data/" + fileName);
+        File myObj = new File(fileName);
+        //File myObj = new File("data/" + fileName);
 
         // create new dataSets set and add information from scanner into new dataset.
         Scanner myReader = new Scanner(myObj);
@@ -85,7 +73,6 @@ public class dataIO {
                 double data = myReader.nextDouble();
                 String date = myReader.nextLine();
                 array.addElement(data, date);
-                //System.out.println(data);
             }
             return array;
         }
