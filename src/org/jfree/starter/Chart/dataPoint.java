@@ -1,5 +1,8 @@
 package org.jfree.starter.Chart;
 
+
+//need to allow dataPoint's data inputs to be more flexible
+
 public class dataPoint {
     private String date = "";
     private double point;

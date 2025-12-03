@@ -19,12 +19,8 @@ public class dataSets {
     //methods
     //add
     public void addElement(double number, String dataY) {
-        for (int i = 0; i < arr.size(); i++) {
-            if (arr.get(i) == null) {
                 dataPoint input = new dataPoint(dataY, number);
-                arr.add(i, input);
-            }
-        }
+                arr.add(input);
     }
 
     public dataPoint getElement(int index) { return arr.get(index); }
