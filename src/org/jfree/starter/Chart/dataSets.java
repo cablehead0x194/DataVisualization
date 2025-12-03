@@ -1,31 +1,35 @@
 package org.jfree.starter.Chart;
 
+import java.util.LinkedList;
+
 public class dataSets {
     private String name = "";
-    private dataPoint[] arr;
+    private LinkedList<dataPoint> arr;
     private int length;
-    private String date = "";
+    private int dataY;
 
     //constructor for an array of data points
-    public dataSets(String name, int size) {
+    public dataSets(String name, int length) {
         this.name = name;
-        arr = new dataPoint[size];
-        length = size;
+        this.length = length;
+        arr = new LinkedList<dataPoint>();
+
     }
 
     //methods
     //add
-    public void addElement(double number, String date) {
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == null) {
-                arr[i] =  new dataPoint(date, number);
+    public void addElement(double number, String dataY) {
+        for (int i = 0; i < arr.size(); i++) {
+            if (arr.get(i) == null) {
+                dataPoint input = new dataPoint(dataY, number);
+                arr.add(i, input);
             }
         }
     }
 
-    public dataPoint getElement(int index) { return arr[index]; }
+    public dataPoint getElement(int index) { return arr.get(index); }
 
-    public dataPoint getElementByDate(String date) { return null; }
+    public dataPoint getElementByDate(String dataY) { return null; }
 
     public void setElement(int index, double value) {}
 
@@ -37,25 +41,27 @@ public class dataSets {
         return length;
     }
 
-    public dataPoint[] getArray() {
+    public LinkedList<dataPoint> getArray() {
         return arr;
     }
 
     public void printArray() {
-        for (int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i].getDate() + ": " + arr[i].getPoint());
+        for (int i = 0; i < arr.size(); i++) {
+            System.out.println(arr.get(i).getDate() + ": " + arr.get(i).getPoint());
         }
     }
 
 
     public String dataToString() {
         String str = "";
-        for (int i = 0; i < arr.length; i++) {
-            str += arr[i].getPoint()+1 +" "+ arr[i].getDate() + "\n";
-            System.out.println(arr[i].getPoint() + " " + arr[i].getDate());
+        for (int i = 0; i < arr.size(); i++) {
+            str += arr.get(i).getPoint()+1 +" "+ arr.get(i).getDate() + "\n";
+            System.out.println(arr.get(i).getPoint() + " " + arr.get(i).getDate());
         }
 
         return str;
+
+
     }
 
 

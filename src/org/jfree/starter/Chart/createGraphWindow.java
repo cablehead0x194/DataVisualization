@@ -17,6 +17,8 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
+import java.util.LinkedList;
+
 //not inuse
 public class createGraphWindow {
 
@@ -52,13 +54,13 @@ public class createGraphWindow {
              */
             private CategoryDataset createDataset(dataSets list) {
                 DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-                dataPoint[] arr = list.getArray();
+                LinkedList<dataPoint> arr = list.getArray();
                 int listLength = list.getLength();
                 String name = list.getName();
 
 // data from Java in a Nutshell
                 for (int i = 0; i < listLength; ++i) {
-                    dataset.addValue((Number) arr[i].getPoint(), "name", i);
+                    dataset.addValue((Number) arr.get(i).getPoint(), "name", i);
                 }
 
 

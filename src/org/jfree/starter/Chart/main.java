@@ -39,22 +39,29 @@ public class main {
      * no return needed.
      * Need to make the array accesible but immutable
      */
-    public static void addDataPoints(dataSets array) {
+    public static void addDataPoints() {
 
 
 
         try {
+            Scanner input = new Scanner(System.in);
+
+            System.out.println("Select locally loaded data set: ");
+            loadedSetNames();
+            int setNo = input.nextInt();
+            dataSets array = list[setNo];
+
             Scanner scanner = new Scanner(System.in);
             double points = 0.0;
             String date = "";
 
             //need to add exception for wrong input type and try again message.
-            for (int i = 0; i < array.getArray().length; ++i) {
-                System.out.println("Enter data point: ");
+            for (int i = 0; i < array.getArray().size(); ++i) {
+                System.out.println("Enter data point (x-axis): ");
                 points = scanner.nextDouble();
                 scanner.nextLine();
 
-                System.out.println("Enter date (DD/MM/YYYY): ");
+                System.out.println("Enter date (y-axis): ");
                 date = scanner.next();
 
                 array.addElement(points, date);
@@ -180,6 +187,7 @@ public class main {
 
             switch (choice) {
                 case 1:
+                    //create options for data types in list. requires editing dataSets
                     dataSets newList = createDataSet();
                     saveLocally(newList);
                     break;
@@ -188,7 +196,7 @@ public class main {
                     break;
                 case 3:
                     //modify so it adds data points to specified local data set
-                    addDataPoints(list[0]);
+                    addDataPoints();
                     break;
                 case 4:
                     loadedSetNames();

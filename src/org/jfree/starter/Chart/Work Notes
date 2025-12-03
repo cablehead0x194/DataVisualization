@@ -3,6 +3,7 @@ To do List:
 -Clean up
     ->Delegate methods in main to classes for conciseness.
     -> Modify case 3 menu.
+    ->Allow modifiable data inputs for X and Y, float, date, etc
 
 
 -Create exceptions with try/call statements to keep program from crashing with incomaptible inputs.
