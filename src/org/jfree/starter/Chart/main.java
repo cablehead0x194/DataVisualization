@@ -40,36 +40,8 @@ public class main {
      * Need to make the array accesible but immutable
      */
     public static void addDataPoints() {
-
-
-
-        try {
-            Scanner input = new Scanner(System.in);
-
-            System.out.println("Select locally loaded data set: ");
-            loadedSetNames();
-            int setNo = input.nextInt();
-            dataSets array = list[setNo];
-
-            Scanner scanner = new Scanner(System.in);
-            double points = 0.0;
-            String date = "";
-
-            //need to add exception for wrong input type and try again message.
-            for (int i = 0; i < array.getArray().size(); ++i) {
-                System.out.println("Enter data point (x-axis): ");
-                points = scanner.nextDouble();
-                scanner.nextLine();
-
-                System.out.println("Enter date (y-axis): ");
-                date = scanner.next();
-
-                array.addElement(points, date);
-            }
-        }
-        catch (NullPointerException e) {
-            System.out.println("Data set has not been initialized or loaded.");
-        }
+        manipulateData manipulateData = new manipulateData();
+        manipulateData.addDataPointsClass();
     }
 
     //to view data set

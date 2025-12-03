@@ -3,20 +3,21 @@ package org.jfree.starter.Chart;
 
 //need to allow dataPoint's data inputs to be more flexible
 
-public class dataPoint {
-    private String date = "";
-    private double point;
+public class dataPoint<T> {
+    private T axisXx;
+    private T axisYy;
 
-        public dataPoint(String date, double point) {
-            this.date = date;
-            this.point = point;
+        public dataPoint(T xx, T yy) {
+            this.axisXx = xx;
+            this.axisYy = yy;
         }
 
-        public String getDate() {
-        return date;
+        public T getAxisXx() {
+        return this.axisXx;
         }
 
-    public double getPoint() {
-        return point;
+    public T getAxisYy() {
+        return axisYy;
     }
+
 }

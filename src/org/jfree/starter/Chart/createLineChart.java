@@ -47,7 +47,7 @@ public class createLineChart {
 
 // data from Java in a Nutshell
                 for (int i = 0; i < listLength; ++i) {
-                    dataset.addValue((Number) arr.get(i).getPoint(), "name", i);
+                    dataset.addValue((Number) arr.get(i).getAxisYy(), "name", i);
                 }
 
 
