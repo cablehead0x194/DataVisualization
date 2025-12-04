@@ -77,7 +77,7 @@ public class createGraphWindow {
 // create the chart...
 
                 JFreeChart chart = ChartFactory.createLineChart(
-                        "Java Standard Class Library", // chart title
+                        "name", // chart title
                         null, // domain axis label
                         "Class Count", // range axis label
                         dataset);

@@ -6,15 +6,22 @@ import java.util.Scanner;
 public class dataSets <T> {
     private String name = "";
     private LinkedList<dataPoint> arr;
-    private int length;
     private int dataY;
+    private String labelY;
+    private String labelX;
 
+    //add input for labelX and Y
     //constructor for an array of data points
-    public dataSets(String name, int length) {
+    public dataSets(String name, String labelY, String labelX) {
         this.name = name;
-        this.length = length;
+        this.labelY = labelY;
+        this.labelX = labelX;
         arr = new LinkedList<dataPoint>();
 
+    }
+
+    public String getSetName() {
+        return this.name;
     }
 
     //methods
@@ -37,7 +44,7 @@ public class dataSets <T> {
     }
 
     public int getLength() {
-        return length;
+        return arr.size();
     }
 
     public LinkedList<dataPoint> getArray() {
@@ -49,14 +56,20 @@ public class dataSets <T> {
             System.out.println(arr.get(i).getAxisXx() + ": " + arr.get(i).getAxisYy());
         }
     }
+    public String getAxisY() {
+        return labelY;
+    }
+
+    public String getAxisX() {
+        return labelX;
+    }
 
 
     public String dataToString() {
         String str = "";
         for (int i = 0; i < arr.size(); i++) {
-            // str +=  +" "+ arr.get(i).getAxisXx() + "\n";
-            //(arr.get(i).getAxisYy()+1).toString()
-            System.out.println(arr.get(i).getAxisYy() + " " + arr.get(i).getAxisXx());
+            str += arr.get(i).getAxisYy() +" "+ arr.get(i).getAxisXx() + "\n";
+            //System.out.println(arr.get(i).getAxisYy() + " " + arr.get(i).getAxisXx());
         }
 
         return str;

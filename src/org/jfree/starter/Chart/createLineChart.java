@@ -11,7 +11,7 @@ import java.awt.*;
 import java.util.LinkedList;
 
 public class createLineChart {
-    createLineChart (dataSets list, String axisY, String axisX, String dataSetName) {
+    createLineChart (dataSets list, String dataSetName) {
 
 
 
@@ -44,12 +44,13 @@ public class createLineChart {
                 LinkedList<dataPoint> arr = list.getArray();
                 int listLength = list.getLength();
                 String name = list.getName();
+                String axisY = list.getAxisY();
+                String axisX = list.getAxisX();
 
 // data from Java in a Nutshell
                 for (int i = 0; i < listLength; ++i) {
                     dataset.addValue((Number) arr.get(i).getAxisYy(), "name", i);
                 }
-
 
                 return dataset;
             }
@@ -65,8 +66,8 @@ public class createLineChart {
 
                 JFreeChart chart = ChartFactory.createLineChart(
                         dataSetName, // chart title
-                        axisY, // domain axis label
-                        axisX, // range axis label
+                        list.getAxisY(), // domain axis label
+                        list.getAxisX(), // range axis label
                         dataset);
                 /*
                 chart.removeLegend();

@@ -29,6 +29,8 @@ public class dataIO {
             FileWriter myWriter = new FileWriter("data/" + fileName);
             myWriter.write(fileName + "\n");
             myWriter.write(dataSet.getLength() + "\n");
+            myWriter.write(dataSet.getAxisY() + "\n");
+            myWriter.write(dataSet.getAxisX() + "\n");
             //create toString for dataSets
             myWriter.write(dataSet.dataToString());
 
@@ -53,7 +55,7 @@ public class dataIO {
         String fileName = "";
 
 
-        System.out.println("Please enter the name of the data set file: ");
+        System.out.println("Please enter the data set file name: ");
         fileName = scanner.next();
 
         File myObj = new File(fileName);
@@ -67,7 +69,11 @@ public class dataIO {
             name = myReader.nextLine();
             length = myReader.nextInt();
 
-            dataSets array = new dataSets(name, length);
+            //might need to add myReader.nextLine() to skip over integer line or something.
+            String labelY = myReader.nextLine();
+            String labelX = myReader.nextLine();
+
+            dataSets array = new dataSets(name, labelY, labelX);
 
             while (myReader.hasNextLine()) {
                 double data = myReader.nextDouble();

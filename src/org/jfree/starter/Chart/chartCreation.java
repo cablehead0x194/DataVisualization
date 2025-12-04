@@ -49,11 +49,6 @@ public class chartCreation {
         String dataSetName;
 
         Scanner input = new Scanner (System.in);
-        System.out.println("Name for category (Y) axis: ");
-        axisY = input.nextLine();
-
-        System.out.println("Name for category (X) axis: ");
-        axisX = input.nextLine();
 
         System.out.println("Provide data set name: ");
         dataSetName = input.nextLine();
@@ -61,7 +56,7 @@ public class chartCreation {
         dataIO sl = new dataIO();
         dataSets list = sl.ReadFile();
 
-        createLineChart lc = new createLineChart(list, axisY, axisX, dataSetName);
+        createLineChart lc = new createLineChart(list, dataSetName);
 
 
 

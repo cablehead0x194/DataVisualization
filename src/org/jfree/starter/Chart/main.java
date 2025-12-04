@@ -29,8 +29,13 @@ public class main {
             }
         }   while (!valid);
 
+        System.out.println("Enter Y-Axis label: ");
+        String labelY = scanner.nextLine();
 
-        dataSets array = new dataSets(name, length);
+        System.out.println("Enter X-Axis label: ");
+        String labelX = scanner.nextLine();
+
+        dataSets array = new dataSets(name, labelY, labelX);
         return array;
     }
 
@@ -53,7 +58,7 @@ public class main {
         loadedSetNames();
         int setNo = input.nextInt();
 
-        list[setNo].dataToString();
+        System.out.println(list[setNo].dataToString());
 
         }
         catch (NullPointerException e) {
@@ -167,14 +172,14 @@ public class main {
                     printDataPoints();
                     break;
                 case 3:
-                    //modify so it adds data points to specified local data set
+
                     addDataPoints();
                     break;
                 case 4:
                     loadedSetNames();
                     break;
                 case 5:
-                    //modify so it saves request local data set not just list[0]
+
                     saveLocalArray();
                     break;
                 case 6:

@@ -18,9 +18,9 @@ public class manipulateData {
         if (type == 1) {
             addDataInteger(array);
         } else if (type == 2) {
-            // addDataFloat(set);
+            addDataFloat(array);
         } else if (type == 3) {
-            //  addDataDouble(set);
+            addDataDouble(array);
         } else {
             System.out.println("Invalid selection");
         }
@@ -31,6 +31,56 @@ public class manipulateData {
         try {
             int pointsX;
             int pointsY;
+            Scanner scanner = new Scanner(System.in);
+
+            System.out.println("How many data points do you want to add?");
+            int count = scanner.nextInt();
+            //need to add exception for wrong input type and try again message.
+            for (int i = 0; i < count; ++i) {
+                System.out.println("Enter data point (x-axis): ");
+                pointsX = scanner.nextInt();
+                scanner.nextLine();
+
+                System.out.println("Enter date (y-axis): ");
+                pointsY = scanner.nextInt();
+
+                set.addElement(pointsX, pointsY);
+            }
+        }
+        catch (NullPointerException e) {
+            System.out.println("Data set has not been initialized or loaded.");
+        }
+    }
+
+    private void addDataFloat(dataSets set) {
+        try {
+            float pointsX;
+            float pointsY;
+            Scanner scanner = new Scanner(System.in);
+
+            System.out.println("How many data points do you want to add?");
+            int count = scanner.nextInt();
+            //need to add exception for wrong input type and try again message.
+            for (int i = 0; i < count; ++i) {
+                System.out.println("Enter data point (x-axis): ");
+                pointsX = scanner.nextInt();
+                scanner.nextLine();
+
+                System.out.println("Enter date (y-axis): ");
+                pointsY = scanner.nextInt();
+
+                set.addElement(pointsX, pointsY);
+            }
+        }
+        catch (NullPointerException e) {
+            System.out.println("Data set has not been initialized or loaded.");
+        }
+    }
+
+    private void addDataDouble(dataSets set) {
+        try {
+            double pointsX;
+            double pointsY;
             Scanner scanner = new Scanner(System.in);
 
             System.out.println("How many data points do you want to add?");

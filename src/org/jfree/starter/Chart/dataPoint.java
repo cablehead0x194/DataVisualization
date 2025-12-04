@@ -7,6 +7,7 @@ public class dataPoint<T> {
     private T axisXx;
     private T axisYy;
 
+
         public dataPoint(T xx, T yy) {
             this.axisXx = xx;
             this.axisYy = yy;
