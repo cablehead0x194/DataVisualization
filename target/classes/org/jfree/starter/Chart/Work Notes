@@ -1,11 +1,9 @@
 To do List:
 
 -Clean up
-    ->Delegate methods in main to classes for conciseness.
-    -> Modify case 3 menu.
-    ->Allow modifiable data inputs for X and Y, float, date, etc
+    ->Continue to delegate methods in main to classes for conciseness.
     ->Might need to add a skip line on myReader in the dataIO class under the filereader for uploading data set.
     ->Reading file IO needs to be updated to be able to identify type of information being loaded (int, double, float, etc) to properly upload data.
-    ->Graphing methods are not able to load information
+    ->Graphing methods are not able to load information due to above issue.
 
 -Create exceptions with try/call statements to keep program from crashing with incomaptible inputs.

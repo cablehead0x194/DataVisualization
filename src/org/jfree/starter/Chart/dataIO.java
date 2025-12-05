@@ -29,6 +29,7 @@ public class dataIO {
             FileWriter myWriter = new FileWriter("data/" + fileName);
             myWriter.write(fileName + "\n");
             myWriter.write(dataSet.getLength() + "\n");
+            myWriter.write(dataSet.getDataType() + "\n");
             myWriter.write(dataSet.getAxisY() + "\n");
             myWriter.write(dataSet.getAxisX() + "\n");
             //create toString for dataSets
@@ -58,29 +59,48 @@ public class dataIO {
         System.out.println("Please enter the data set file name: ");
         fileName = scanner.next();
 
-        File myObj = new File(fileName);
+        File myObj = new File("data/" + fileName);
         //File myObj = new File("data/" + fileName);
 
         // create new dataSets set and add information from scanner into new dataset.
         Scanner myReader = new Scanner(myObj);
             String name = "";
-            int length = 0;
+
 
             name = myReader.nextLine();
-            length = myReader.nextInt();
+            int dataType = myReader.nextInt();
 
             //might need to add myReader.nextLine() to skip over integer line or something.
             String labelY = myReader.nextLine();
             String labelX = myReader.nextLine();
+            myReader.nextLine();
+            dataSets array = new dataSets(name, labelY, labelX, dataType);
 
-            dataSets array = new dataSets(name, labelY, labelX);
-
-            while (myReader.hasNextLine()) {
-                double data = myReader.nextDouble();
-                String date = myReader.nextLine();
-                array.addElement(data, date);
+            //create if else statements for specific data type
+            if (dataType == 1) {
+                while (myReader.hasNextInt()) {
+                    int axisX= myReader.nextInt();
+                    int axisY = myReader.nextInt();
+                    array.addElement(axisX, axisY);
+                }
+                return array;
             }
-            return array;
+            else if (dataType == 2) {
+                while (myReader.hasNextLine()) {
+                    double axisX= myReader.nextDouble();
+                    double axisY = myReader.nextDouble();
+                    array.addElement(axisX, axisY);
+                }
+                return array;
+            }
+            else if (dataType == 3) {
+                while (myReader.hasNextLine()) {
+                    float axisX= myReader.nextFloat();
+                    float axisY = myReader.nextFloat();
+                    array.addElement(axisX, axisY);
+                }
+                return array;
+            }
         }
         catch (FileNotFoundException e) {
             System.out.println("File does not exist or is not readable.");

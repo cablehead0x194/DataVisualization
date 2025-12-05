@@ -1,4 +1,5 @@
 package org.jfree.starter.Chart;
+import javax.swing.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -10,17 +11,17 @@ public class main {
         Scanner scanner = new Scanner(System.in);
         String name ="";
         String date = "";
-        int length = 0;
+        int dataType = 0;
         boolean valid = false;
 
         System.out.println("Enter name of data elements: ");
         name = scanner.next();
         scanner.nextLine();
 
-        System.out.println("Enter number of data points: ");
+        System.out.println("Enter data type: \n 1 for integer.\n2 for double.\n3 for float.");
         do {
             try {
-                length = scanner.nextInt();
+                dataType = scanner.nextInt();
                 scanner.nextLine();
                 valid = true;
             } catch (InputMismatchException e) {
@@ -35,7 +36,7 @@ public class main {
         System.out.println("Enter X-Axis label: ");
         String labelX = scanner.nextLine();
 
-        dataSets array = new dataSets(name, labelY, labelX);
+        dataSets array = new dataSets(name, labelY, labelX, dataType);
         return array;
     }
 
@@ -141,8 +142,6 @@ public class main {
 
     public static void main(String[] args) {
 
-
-
         //create menu to select
         Scanner scanner = new Scanner(System.in);
         int choice;
@@ -202,4 +201,6 @@ public class main {
 
 
     }
+
+
 }

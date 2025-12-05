@@ -9,13 +9,15 @@ public class dataSets <T> {
     private int dataY;
     private String labelY;
     private String labelX;
+    private int dataType;
 
     //add input for labelX and Y
     //constructor for an array of data points
-    public dataSets(String name, String labelY, String labelX) {
+    public dataSets(String name, String labelY, String labelX, int dataType) {
         this.name = name;
         this.labelY = labelY;
         this.labelX = labelX;
+        this.dataType = dataType;
         arr = new LinkedList<dataPoint>();
 
     }
@@ -32,6 +34,9 @@ public class dataSets <T> {
     }
 
 
+    public int getDataType() {
+        return this.dataType;
+    }
 
     public dataPoint getElement(int index) { return arr.get(index); }
 

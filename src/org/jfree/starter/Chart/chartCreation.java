@@ -48,15 +48,20 @@ public class chartCreation {
         String axisX;
         String dataSetName;
 
+        System.out.println("Select local data set: ");
+        main.loadedSetNames();
         Scanner input = new Scanner (System.in);
+        int input1 = input.nextInt();
 
-        System.out.println("Provide data set name: ");
+        /*System.out.println("Provide data set name: ");
         dataSetName = input.nextLine();
 
         dataIO sl = new dataIO();
         dataSets list = sl.ReadFile();
+        */
+        dataSets array = main.list[input1];
 
-        createLineChart lc = new createLineChart(list, dataSetName);
+        createLineChart lc = new createLineChart(array, array.getSetName());
 
 
 

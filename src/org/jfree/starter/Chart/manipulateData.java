@@ -12,14 +12,13 @@ public class manipulateData {
         int setNo = input.nextInt();
         dataSets array = main.list[setNo];
 
-        System.out.println("Select data type:\n1. Integer\n2. For up to 7 decimals of precion\n3. For up to 15 decimals of precision ");
-        Scanner typeInput = new Scanner(System.in);
-        int type = typeInput.nextInt();
-        if (type == 1) {
+        int dataType = array.getDataType();
+
+        if (dataType == 1) {
             addDataInteger(array);
-        } else if (type == 2) {
+        } else if (dataType == 2) {
             addDataFloat(array);
-        } else if (type == 3) {
+        } else if (dataType == 3) {
             addDataDouble(array);
         } else {
             System.out.println("Invalid selection");
